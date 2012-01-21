@@ -15,6 +15,8 @@ group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
   gem 'capybara', '1.1.2'
+  gem 'guard-spork', '0.3.2'
+  gem 'spork', '0.9.0.rc'
   # System depedent gems
   # Mac OS X
   gem 'rb-fsevent', '0.4.3.1', :require => false
