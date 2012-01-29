@@ -19,5 +19,7 @@ guard 'rspec', :version => 2, :all_after_pass => false, :cli => '--drb' do
      "spec/acceptance/#{m[1]}_spec.rb",
      "spec/requests/#{m[1]}_spec.rb"]
   end
+  watch(%r{^app/models/(.+)\.rb$}) { |m| "spec/models/#{m[1]}_spec.rb" }
   watch(%r{^app/views/(.+)/}) { |m| "spec/requests/#{m[1]}_spec.rb" }
+  watch(%r{^spec/(.+)}) { |m| "spec/#{m[1]}" }
 end
