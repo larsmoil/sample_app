@@ -6,6 +6,7 @@ gem 'bcrypt-ruby', '3.0.1'
 group :development do
   gem 'guard-rspec', '0.5.5'
   gem 'annotate', '~> 2.4.1.beta'
+  gem 'guard-annotate'
 end
 
 group :development, :test do

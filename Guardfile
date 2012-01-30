@@ -23,3 +23,15 @@ guard 'rspec', :version => 2, :all_after_pass => false, :cli => '--drb' do
   watch(%r{^app/views/(.+)/}) { |m| "spec/requests/#{m[1]}_spec.rb" }
   watch(%r{^spec/(.+)}) { |m| "spec/#{m[1]}" }
 end
+
+guard 'annotate' do
+  watch( 'db/schema.rb' )
+
+  # Uncomment the following line if you also want to run annotate anytime
+  # a model file changes
+  #watch( 'app/models/**/*.rb' )
+
+  # Uncomment the following line if you are running routes annotation
+  # with the ":routes => true" option
+  #watch( 'config/routes.rb' )
+end
