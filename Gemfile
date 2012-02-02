@@ -20,6 +20,7 @@ group :test do
   gem 'capybara', '1.1.2'
   gem 'guard-spork', '0.3.2'
   gem 'spork', '0.9.0.rc'
+  gem 'factory_girl_rails', '1.4.0'
   # System depedent gems
   # Mac OS X
   gem 'rb-fsevent', '0.4.3.1', :require => false
