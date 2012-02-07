@@ -8,7 +8,9 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch(%r{^config/initializers/.+\.rb$})
   watch('Gemfile')
   watch('Gemfile.lock')
+  watch('spec/factories.rb')
   watch('spec/spec_helper.rb')
+  watch('spec/support/*.rb')
   watch('test/test_helper.rb')
 end
 
@@ -22,6 +24,26 @@ guard 'rspec', :version => 2, :all_after_pass => false, :cli => '--drb' do
   watch(%r{^app/models/(.+)\.rb$}) { |m| "spec/models/#{m[1]}_spec.rb" }
   watch(%r{^app/views/(.+)/}) { |m| "spec/requests/#{m[1]}_spec.rb" }
   watch(%r{^spec/(.+)}) { |m| "spec/#{m[1]}" }
+  watch(%r{^spec/support/(.+)}) { |m| "spec/**/*" }
+  watch('spec/factories.rb') { |m| "spec/**/*" }
+end
+
+guard 'cucumber' do
+  watch(%r{^features/.+\.feature$})
+  watch(%r{^features/support/.+$})          { 'features' }
+  watch(%r{^features/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
+end
+
+guard 'annotate' do
+  watch( 'db/schema.rb' )
+
+  # Uncomment the following line if you also want to run annotate anytime
+  # a model file changes
+  #watch( 'app/models/**/*.rb' )
+
+  # Uncomment the following line if you are running routes annotation
+  # with the ":routes => true" option
+  #watch( 'config/routes.rb' )
 end
 
 guard 'cucumber' do
