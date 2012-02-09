@@ -1,0 +1,7 @@
+<% if current_user?(object.user) %>
+  <td>
+    <%= link_to "delete", object, method: :delete,
+                                  confirm: "You sure?",
+                                  title: object.content %>
+  </td>
+<% end %>
