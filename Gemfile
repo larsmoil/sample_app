@@ -10,6 +10,9 @@ group :development do
   gem 'annotate', '~> 2.4.1.beta'
   gem 'guard-annotate'
   gem 'guard-cucumber'
+  gem 'guard-livereload'
+  gem 'rack-livereload'
+  gem 'fuubar'
 end
 
 group :development, :test do
@@ -26,6 +29,7 @@ group :test do
   gem 'factory_girl_rails', '1.4.0'
   gem 'cucumber-rails', '1.2.1'
   gem 'database_cleaner', '0.7.0'
+  gem 'guard-bundler'
   # System depedent gems
   # Mac OS X
   gem 'rb-fsevent', '0.4.3.1', :require => false
