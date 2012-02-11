@@ -41,4 +41,41 @@ describe UsersController do
       end
     end
   end
+
+  describe "follow pages" do
+
+    describe "when not signed in" do
+
+      before { session_sign_out }
+
+      it "should protect 'following'" do
+        get :following, id: user.id
+        response.should redirect_to(signin_path)
+      end
+
+      it "should protect 'followers'" do
+        get :followers, id: user.id
+        response.should redirect_to(signin_path)
+      end
+    end
+
+    describe "when signed in" do
+
+      let(:other_user) { FactoryGirl.create(:user) }
+
+      before do
+        user.follow!(other_user)
+      end
+
+      it "should show the user following" do
+        get :following, id: user
+        response.should be_success
+      end
+
+      it "should show the user followers" do
+        get :followers, id: other_user
+        response.should be_success
+      end
+    end
+  end
 end

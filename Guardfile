@@ -29,6 +29,7 @@ guard 'rspec', :version => 2, :all_after_pass => false, :cli => '--drb --format 
   end
   watch(%r{^app/models/(.+)\.rb$}) { |m| "spec/models/#{m[1]}_spec.rb" }
   watch(%r{^app/views/(.+)/}) { |m| "spec/requests/#{m[1]}_spec.rb" }
+  watch(%r{^app/views/shared/(.+)}) { |m| "spec/requests/*" }
   watch(%r{^spec/(.+)}) { |m| "spec/#{m[1]}" }
   watch(%r{^spec/support/(.+)}) { |m| "spec/**/*" }
   watch('spec/factories.rb') { |m| "spec/**/*" }

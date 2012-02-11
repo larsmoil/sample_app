@@ -26,3 +26,8 @@ def session_sign_in(user)
   # Sign in when not using Capybara as well.
   session[:remember_token] = user.remember_token
 end
+
+def session_sign_out
+  # Sign in when not using Capybara as well.
+  session.delete(:remember_token)
+end

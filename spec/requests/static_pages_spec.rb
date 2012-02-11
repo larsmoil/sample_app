@@ -24,10 +24,33 @@ describe "Static pages" do
         sign_in(user)
         visit root_path
       end
+
       it "should render the user's feed" do
         user.feed.each do |item|
           page.should have_selector("tr##{item.id}", text: item.content)
         end
+      end
+
+      describe "following counts" do
+        let(:other_user) { FactoryGirl.create(:user) }
+        before do
+          user.follow!(other_user)
+          visit root_path
+        end
+
+        it { should have_link("1 following", href: following_user_path(user)) }
+        it { should have_link("0 followers",  href: followers_user_path(user)) }
+      end
+
+      describe "follower counts" do
+        let(:other_user) { FactoryGirl.create(:user) }
+        before do
+          other_user.follow!(user)
+          visit root_path
+        end
+
+        it { should have_link("0 following", href: following_user_path(user)) }
+        it { should have_link("1 follower",  href: followers_user_path(user)) }
       end
     end
   end
