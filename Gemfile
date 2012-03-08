@@ -6,7 +6,7 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 
 group :development do
-  gem 'guard-rspec', '0.5.5'
+  gem 'guard-rspec', '0.6.0'
   gem 'annotate', '~> 2.4.1.beta'
   gem 'guard-annotate'
   gem 'guard-cucumber'
@@ -22,17 +22,17 @@ end
 
 group :test do
   # Pretty printed test output
-  gem 'turn', '0.8.2', :require => false
+  gem 'turn', '0.9.3', :require => false
   gem 'capybara', '1.1.2'
-  gem 'guard-spork', '0.3.2'
-  gem 'spork', '0.9.0.rc'
-  gem 'factory_girl_rails', '1.4.0'
-  gem 'cucumber-rails', '1.2.1'
-  gem 'database_cleaner', '0.7.0'
+  gem 'guard-spork', '0.5.2'
+  gem 'spork', '1.0.0rc2'
+  gem 'factory_girl_rails', '1.7.0'
+  gem 'cucumber-rails', '1.3.0'
+  gem 'database_cleaner', '0.7.1'
   gem 'guard-bundler'
   # System depedent gems
   # Mac OS X
-  gem 'rb-fsevent', '0.4.3.1', :require => false
+  gem 'rb-fsevent', '0.9.0', :require => false
   gem 'growl', '1.0.3'
   # Linux
   #gem 'rb-inotify', '0.8.8'
@@ -44,7 +44,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.12.2'
+  gem 'pg', '0.13.2'
 end
 
 # Gems used only for assets and not required
@@ -57,7 +57,7 @@ group :assets do
   gem 'therubyracer'
 end
 
-gem 'jquery-rails', '1.0.18'
+gem 'jquery-rails', '2.0.1'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
